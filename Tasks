@@ -224,9 +224,33 @@ END;
 /
 */
 
-/************************** ITEM 11 ****************************/
+/************************** ITEM 11 ****************************
 
+AWR report indicates huge wait events
+maybe changing the commit_logging parameter increase de performance.
 
+BATCH/IMMEDIATE
+
+SQL> show parameter commit
+
+NAME                                 TYPE        VALUE
+———————————— ———– ——————————
+commit_logging                    string
+commit_point_strength         integer     1
+commit_wait                          string
+commit_write                         string
+
+ALTER SYSTEM SET COMMIT_LOGGING=BATCH SCOPE=BOTH;
+
+shwo show parameter commit
+
+NAME                                 TYPE        VALUE
+———————————— ———– ——————————
+commit_logging                    string       BATCH
+commit_point_strength         integer     1
+commit_wait                          string
+commit_write                         string
+*/
 
 /************************** ITEM 12 ****************************/
 /* Note : Use Python language                                  */
